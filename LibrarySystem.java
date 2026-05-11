@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,11 +15,9 @@ public class LibrarySystem {
                 int choice;
                 try {
                     System.out.print("Enter choice: ");
-                    choice = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
-                } catch (InputMismatchException e) {
+                    choice = Integer.parseInt(scanner.nextLine());
+                } catch (NumberFormatException e) {
                     System.out.println("Invalid input. Please enter a number between 1 and 6.");
-                    scanner.nextLine();
                     continue;
                 }
 
@@ -72,7 +69,6 @@ public class LibrarySystem {
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Book ID and pages must be whole numbers.");
-            scanner.nextLine();
         }
     }
 
@@ -81,9 +77,8 @@ public class LibrarySystem {
             System.out.print("Enter book ID to borrow: ");
             int id = Integer.parseInt(scanner.nextLine());
             inventory.borrowBook(id);
-        } catch (InputMismatchException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Invalid input. Book ID must be a whole number.");
-            scanner.nextLine();
         }
     }
 
@@ -96,9 +91,8 @@ public class LibrarySystem {
             System.out.print("Enter book ID to return: ");
             int id = Integer.parseInt(scanner.nextLine());
             inventory.returnBook(id);
-        } catch (InputMismatchException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Invalid input. Book ID must be a whole number.");
-            scanner.nextLine();
         }
     }
 
