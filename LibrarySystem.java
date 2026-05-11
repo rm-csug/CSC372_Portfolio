@@ -66,8 +66,7 @@ public class LibrarySystem {
             String isbn = scanner.nextLine().trim();
 
             System.out.print("Enter number of pages: ");
-            int pages = scanner.nextInt();
-            scanner.nextLine();
+            int pages = Integer.parseInt(scanner.nextLine());
 
             inventory.addBook(new Book(id, title, author, isbn, pages));
 
