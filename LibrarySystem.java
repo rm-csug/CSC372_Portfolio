@@ -70,7 +70,7 @@ public class LibrarySystem {
 
             inventory.addBook(new Book(id, title, author, isbn, pages));
 
-        } catch (InputMismatchException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Invalid input. Book ID and pages must be whole numbers.");
             scanner.nextLine();
         }
